@@ -83,24 +83,26 @@ section input {
   color: var(--White);
 }
 
+.dropdown{
+  padding-right: 1rem;
+  background-color: var(--White);
+  box-shadow: var(--boxShadow);
+  border-radius: var(--box_borderRadius);
+  margin: 2rem 0 0.5rem 0;
+  /* background-color: aqua; */
+  width: 12rem;
+}
 select {
   border: none;
   background-color: var(--White);
-  box-shadow: var(--boxShadow);
   padding: 1rem;
   width: 12rem;
   font-size: 0.8rem;
-  /* margin: 0.5rem 0 1.5rem 0; */
-  margin: 1.2rem 0 1rem 0;
-  border-radius: var(--box_borderRadius);
 }
 
 select option {
-  /* padding: 2rem;
-  margin: 2rem; */
   font-size: 0.8rem;
   background-color: var(--White);
-  /* background-color: pink; */
 }
 
 .countries {
@@ -188,15 +190,19 @@ select option {
     font-size: 1rem;
     width: 100%;
   }
-  /* .dropdown{
-    background-color: aqua;
-    padding: 0;
-  } */
+  .dropdown{
+    margin: 0;
+  }
+  select{
+    padding: 1.3rem;
+  }
   select,
   select option {
     font-size: 1.1rem;
   }
-  
+  /* select{
+    margin: auto;
+  } */
 
   .countries {
     gap: 1.5rem;

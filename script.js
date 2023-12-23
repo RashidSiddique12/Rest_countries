@@ -123,7 +123,8 @@ mode.addEventListener("click", (e) => {
   const header = document.querySelector("header");
   const input = document.querySelector("section input");
   const select = document.querySelector("select");
-  const selectOption = document.querySelectorAll("select option")
+  const dropdown = document.querySelector(".dropdown");
+  const selectOption = document.querySelectorAll("select option");
   const countryBox = document.querySelectorAll(".countryBox");
   const icon = e.target.parentElement.children[0].children[0];
 
@@ -136,6 +137,7 @@ mode.addEventListener("click", (e) => {
     input.style.color = "white";
     input.className ="searchBlack";
     select.style.backgroundColor = "hsl(209, 23%, 22%)";
+    dropdown.style.backgroundColor = "hsl(209, 23%, 22%)";
     select.style.color = "white";
     Array.from(selectOption).forEach((option)=>{
       option.style.backgroundColor = "hsl(209, 23%, 22%)";
@@ -158,6 +160,7 @@ mode.addEventListener("click", (e) => {
     input.className ="searchWhite";
     select.style.backgroundColor = "hsl(0, 0%, 100%)";
     select.style.color = "hsl(200, 15%, 8%)";
+    dropdown.style.backgroundColor = "white";
 
    Array.from(selectOption).forEach((option)=>{
       option.style.backgroundColor= "white";
