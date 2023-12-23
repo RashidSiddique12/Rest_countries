@@ -37,7 +37,7 @@ const makeDiv = (data) => {
     regionP.appendChild(regionSpan);
     capitalP.appendChild(capitalSpan);
 
-    populationP.appendChild(document.createTextNode(`${data[i].population}`));
+    populationP.appendChild(document.createTextNode(`${(data[i].population).toLocaleString()}`));
     regionP.appendChild(document.createTextNode(`${data[i].region}`));
     capitalP.appendChild(document.createTextNode(`${data[i].capital}`));
 
@@ -80,44 +80,38 @@ const fetchApi = async () => {
 
 fetchApi();
 
-//searching
-const search = document.querySelector("#search");
-search.addEventListener("keyup", (e) => {
-  const userInput = e.target.value.toLowerCase();
-  const countryBox = document.querySelectorAll(".countryBox");
-  Array.from(countryBox).forEach((country) => {
-    const countryName =
-      country.children[1].children[0].textContent.toLocaleLowerCase();
-    if (countryName.indexOf(userInput) != -1) {
-      // console.log(country)
-      country.style.display = "block";
-    } else {
-      country.style.display = "none";
-    }
-  });
-});
+//when dom loaded
+document.addEventListener("DOMContentLoaded",()=>{
 
-//filtering
+  const updateDisplay = (e)=>{
+    const UserInput = search.value.toLowerCase().trim();
+    const filteredRegion = filter.value;
+    const countryBoxes = document.querySelectorAll('.countryBox');
+    // console.log(countryBoxes);
+    countryBoxes.forEach((country)=>{
+      const countryName = country.lastChild.firstChild.textContent.toLocaleLowerCase();
+      const region = country.lastChild.children[2].lastChild.textContent;
+      
+      const matchesSearch = countryName.includes(UserInput);
+      const matchesFilter = filteredRegion === "Filter by Region" || filteredRegion === region;
+      // console.log(matchesSearch, matchesFilter);
 
-const filter = document.getElementById("dropdown");
-// console.log(filter)
-filter.addEventListener("change", (e) => {
-  const UserRegion = e.target.value;
-  // console.log(UserRegion);
-  const countryBox = document.querySelectorAll(".countryBox");
-  Array.from(countryBox).forEach((country) => {
-    const dataRegion =
-      country.lastElementChild.children[2].lastChild.textContent;
-    //   console.log(UserRegion);
-    if (UserRegion === "Filter by Region") {
-      country.style.display = "block";
-    } else if (dataRegion === UserRegion) {
-      country.style.display = "block";
-    } else {
-      country.style.display = "none";
-    }
-  });
-});
+      if(matchesSearch && matchesFilter){
+        country.style.display = "block";
+      }
+      else{
+        country.style.display = "none";
+      }
+    })
+  }
+
+  //searching and filtering
+  const search = document.querySelector("#search");
+  const filter = document.getElementById("dropdown");
+
+  search.addEventListener("keyup", updateDisplay);
+  filter.addEventListener("change", updateDisplay);
+
 
 //darkMmode
 const mode = document.querySelector(".mode");
@@ -178,3 +172,5 @@ mode.addEventListener("click", (e) => {
 
   }
 });
+
+})
