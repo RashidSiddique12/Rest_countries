@@ -92,6 +92,7 @@ section input {
   /* background-color: aqua; */
   width: 12rem;
 }
+
 select {
   border: none;
   background-color: var(--White);
@@ -150,9 +151,8 @@ select option {
 }
 
 .countryBox p span {
-  /* font-weight: 600; */
-  font-weight: bold;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.8rem;
   margin-right: 0.3rem;
 }
 
