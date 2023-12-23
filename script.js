@@ -103,7 +103,7 @@ const filter = document.getElementById("dropdown");
 // console.log(filter)
 filter.addEventListener("click", (e) => {
   const UserRegion = e.target.value;
-  console.log(UserRegion);
+  // console.log(UserRegion);
   const countryBox = document.querySelectorAll(".countryBox");
   Array.from(countryBox).forEach((country) => {
     const dataRegion =
@@ -130,8 +130,6 @@ mode.addEventListener("click", (e) => {
   const input = document.querySelector("section input");
   const select = document.querySelector("select");
   const countryBox = document.querySelectorAll(".countryBox");
-  // const placeholder = document.querySelector("#search::placeholder")
-  // console.log(placeholder);
   const icon = e.target.parentElement.children[0].children[0];
 
   if (modetype === "Dark Mode") {
@@ -139,7 +137,9 @@ mode.addEventListener("click", (e) => {
     body.style.color = "white";
     header.style.backgroundColor = "hsl(209, 23%, 22%)";
     input.style.backgroundColor = "hsl(209, 23%, 22%)";
-    // placeholder.style.color = "white";
+    input.style.backgroundImage = "url('./images/icon-magnifying-glass-white.svg')";
+    input.style.color = "white";
+    input.className ="searchBlack";
     select.style.backgroundColor = "hsl(209, 23%, 22%)";
     select.style.color = "white";
     countryBox.forEach((box) => {
@@ -155,6 +155,9 @@ mode.addEventListener("click", (e) => {
     body.style.color = "hsl(200, 15%, 8%)";
     header.style.backgroundColor = "hsl(0, 0%, 100%)";
     input.style.backgroundColor = "hsl(0, 0%, 100%)";
+    input.style.backgroundImage = "url('./images/icon-magnifying-glass-grey.svg')";
+    input.style.color = "grey";
+    input.className ="searchWhite";
     select.style.backgroundColor = "hsl(0, 0%, 100%)";
     select.style.color = "hsl(200, 15%, 8%)";
     countryBox.forEach((box) => {
