@@ -101,7 +101,7 @@ search.addEventListener("keyup", (e) => {
 
 const filter = document.getElementById("dropdown");
 // console.log(filter)
-filter.addEventListener("click", (e) => {
+filter.addEventListener("change", (e) => {
   const UserRegion = e.target.value;
   // console.log(UserRegion);
   const countryBox = document.querySelectorAll(".countryBox");
