@@ -65,17 +65,18 @@ const makeDiv = (data) => {
   });
 };
 
-const SeachByCountryName = (data) => {};
+
 
 const fetchApi = async () => {
-  let data = await fetch(
-    "https://restcountries.com/v3.1/all?fields=name,flags,capital,population,region"
-  );
-  data = await data.json();
-  // console.log(flagObj.length);
-
-  // filterByRegion(data);
-  makeDiv(data);
+  try {
+    let data = await fetch(
+      "https://restcountries.com/v3.1/all?fields=name,flags,capital,population,region"
+    );
+    data = await data.json();
+    makeDiv(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 fetchApi();
